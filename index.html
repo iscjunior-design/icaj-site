@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-7mLb45lBJINgSSVh3EeagrnaZpg0hatst37kH5Nth98='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://icaj.com.br/">
+  <title>ICAJ Advocacia e Consultoria Jurídica — Isaias Carlos de Azevedo Júnior</title>
+  <meta name="description" content="Cartão digital institucional — Isaias Carlos de Azevedo Júnior, Advogado OAB/MG 244.358. Direito da Construção e de Infraestrutura.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F5F7FA;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F8FAFC;
+      --bg-hover: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --accent: #1D63ED;
+      --accent-hover: #154EC2;
+      --accent-soft: rgba(29, 99, 237, 0.08);
+      --accent-border: rgba(29, 99, 237, 0.22);
+      --header-bg: #0B0D13;
+      --header-text: #F8FAFC;
+      --header-muted: #94A3B8;
+      --header-border: rgba(255, 255, 255, 0.10);
+      --shadow-card: 0 20px 44px -16px rgba(11, 13, 19, 0.12), 0 2px 6px rgba(11, 13, 19, 0.04);
+      --radius-card: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      --transition: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html[data-theme="dark"] {
+      --bg-page: #06080C;
+      --bg-surface: #0E121A;
+      --bg-subtle: #131924;
+      --bg-hover: #1A2230;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border: #1E293B;
+      --border-strong: #334155;
+      --accent: #3B82F6;
+      --accent-hover: #2563EB;
+      --accent-soft: rgba(59, 130, 246, 0.12);
+      --accent-border: rgba(59, 130, 246, 0.30);
+      --shadow-card: 0 24px 56px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.55;
+      min-height: 100vh;
+      padding: 20px 14px 40px;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    .card-shell {
+      max-width: 520px;
+      margin: 0 auto;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    /* ==================== HEADER ==================== */
+    .hero {
+      position: relative;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 22px 24px 26px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--header-border);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: -70px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(29, 99, 237, 0.34) 0%, rgba(29, 99, 237, 0.06) 48%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--header-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.15;
+      color: #FFFFFF;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--header-muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .theme-toggle {
+      appearance: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #E2E8F0;
+      border-radius: 999px;
+      padding: 6px 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.11);
+      border-color: rgba(255, 255, 255, 0.26);
+    }
+
+    .theme-toggle:focus-visible,
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .identity {
+      padding-top: 20px;
+    }
+
+    .identity-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .oab-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #93C5FD;
+      background: rgba(29, 99, 237, 0.18);
+      border: 1px solid rgba(59, 130, 246, 0.38);
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.70rem;
+      color: var(--header-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .identity-name {
+      font-family: var(--font-display);
+      font-size: 1.48rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.22;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .identity-area {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #CBD5E1;
+      max-width: 44ch;
+    }
+
+    .identity-area strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .identity-area em {
+      font-style: normal;
+      color: #94A3B8;
+    }
+
+    /* ==================== QUICK ACTIONS ==================== */
+    .actions-section {
+      padding: 18px 20px 16px;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--bg-surface);
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .action-btn {
+      appearance: none;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background-color: var(--bg-subtle);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .action-btn:hover {
+      background-color: var(--bg-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .action-btn:active {
+      transform: translateY(0);
+    }
+
+    .action-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .action-btn.primary {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .action-btn.primary:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .email-bar {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+    }
+
+    .email-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .email-bar-label {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .email-bar-value {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .email-bar-value:hover {
+      color: var(--accent);
+    }
+
+    .copy-mini-btn {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 9px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      background-color: var(--bg-surface);
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.71rem;
+      font-weight: 500;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+    }
+
+    .copy-mini-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+
+    /* ==================== TABS ==================== */
+    .tabs-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--border);
+      background-color: var(--bg-surface);
+      padding: 0 12px;
+    }
+
+    .tab-btn {
+      appearance: none;
+      position: relative;
+      background: transparent;
+      border: none;
+      padding: 14px 8px;
+      font-family: var(--font-display);
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-btn[aria-selected="true"] {
+      color: var(--accent);
+    }
+
+    .tab-btn[aria-selected="true"]::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: -1px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 20px;
+      animation: panelFade 200ms ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes panelFade {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ==================== TAB 1: ATUAÇÃO (ACCORDION) ==================== */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .acc-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface);
+      overflow: hidden;
+      transition: border-color var(--transition), background-color var(--transition);
+    }
+
+    .acc-item[data-open="true"] {
+      border-color: var(--accent-border);
+      background-color: var(--bg-subtle);
+    }
+
+    .acc-trigger {
+      appearance: none;
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 13px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+
+    .acc-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .acc-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .acc-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .acc-title {
+      font-family: var(--font-display);
+      font-size: 0.89rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+
+    .acc-chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .acc-item[data-open="true"] .acc-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .acc-content {
+      display: none;
+      padding: 0 14px 14px 57px;
+      font-size: 0.84rem;
+      line-height: 1.58;
+      color: var(--text-secondary);
+    }
+
+    .acc-item[data-open="true"] .acc-content {
+      display: block;
+    }
+
+    /* ==================== TAB 2: FORMAÇÃO ==================== */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background-color: var(--border-strong);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 16px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -20px;
+      top: 6px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-strong);
+    }
+
+    .timeline-item.current .timeline-node {
+      border-color: var(--accent);
+      background-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .timeline-meta {
+      margin-top: 3px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-inst {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .status-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background-color: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .comp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .comp-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background-color: var(--bg-subtle);
+    }
+
+    .comp-main {
+      min-width: 0;
+    }
+
+    .comp-title {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .comp-inst {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .comp-year {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ==================== TAB 3: CREDENCIAIS & QR ==================== */
+    .qr-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background-color: var(--bg-subtle);
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .qr-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .qr-mode-btn {
+      appearance: none;
+      padding: 8px 6px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background-color: var(--bg-surface);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .qr-mode-btn:hover {
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+
+    .qr-mode-btn[aria-pressed="true"] {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .qr-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .qr-frame {
+      background-color: #FFFFFF;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(11, 13, 19, 0.08);
+    }
+
+    .qr-frame svg {
+      display: block;
+      width: 188px;
+      height: 188px;
+    }
+
+    .qr-caption {
+      margin-top: 12px;
+      font-size: 0.79rem;
+      color: var(--text-secondary);
+      max-width: 38ch;
+      line-height: 1.48;
+    }
+
+    .qr-meta-line {
+      margin-top: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      word-break: break-all;
+    }
+
+    .cred-list {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--bg-surface);
+    }
+
+    .cred-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cred-row:last-child {
+      border-bottom: none;
+    }
+
+    .cred-info {
+      min-width: 0;
+    }
+
+    .cred-label {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .cred-value {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      word-break: break-word;
+    }
+
+    .cred-value.mono {
+      font-family: var(--font-mono);
+      font-size: 0.79rem;
+    }
+
+    .cred-link {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .cred-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .card-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      background-color: var(--bg-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ==================== TOAST ==================== */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%) translateY(16px);
+      background-color: #0B0D13;
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.80rem;
+      font-weight: 500;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      max-width: calc(100vw - 28px);
+      text-align: center;
+      z-index: 999;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 460px) {
+      body {
+        padding: 10px 8px 28px;
+      }
+
+      .hero {
+        padding: 18px 18px 22px;
+      }
+
+      .identity-name {
+        font-size: 1.32rem;
+      }
+
+      .actions-section,
+      .tab-panel {
+        padding: 16px;
+      }
+
+      .actions-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .action-btn.primary {
+        grid-column: span 2;
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      .acc-content {
+        padding: 0 14px 14px 14px;
+      }
+
+      .qr-frame svg {
+        width: 172px;
+        height: 172px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card-shell" aria-label="Cartão digital institucional — ICAJ Advocacia e Consultoria Jurídica">
+    <!-- HEADER -->
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-topbar">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="2" stroke="#E2E8F0" stroke-width="1.25"/>
+                <line x1="7.5" y1="6.5" x2="7.5" y2="17.5" stroke="#FFFFFF" stroke-width="1.75"/>
+                <path d="M11.5 17.5L15 6.5L18.5 17.5" stroke="#3B82F6" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter"/>
+                <line x1="12.8" y1="14" x2="17.2" y2="14" stroke="#E2E8F0" stroke-width="1.25"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-wordmark">ICAJ</span>
+              <span class="brand-sub">Advocacia e Consultoria Jurídica</span>
+            </div>
+          </div>
+
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro e escuro">
+            <svg id="themeIconSun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <svg id="themeIconMoon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span id="themeLabel">Escuro</span>
+          </button>
+        </div>
+
+        <div class="identity">
+          <div class="identity-meta">
+            <span class="oab-badge">Advogado · OAB/MG 244.358</span>
+            <span class="location-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Belo Horizonte/MG
+            </span>
+          </div>
+          <h1 class="identity-name">Isaias Carlos de Azevedo Júnior</h1>
+          <p class="identity-area">
+            <strong>Direito da Construção e de Infraestrutura</strong> — <em>Consultoria jurídica em contratos de obras e serviços de engenharia.</em>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- BARRA DE AÇÕES RÁPIDAS -->
+    <section class="actions-section" aria-label="Ações rápidas de contato">
+      <div class="actions-grid">
+        <a class="action-btn primary" href="https://wa.me/5531996431621" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <a class="action-btn" href="mailto:iscjunior@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <span>E-mail</span>
+        </a>
+
+        <button type="button" class="action-btn" id="btnSaveContact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <line x1="19" y1="8" x2="19" y2="14"></line>
+            <line x1="22" y1="11" x2="16" y2="11"></line>
+          </svg>
+          <span>Salvar</span>
+        </button>
+
+        <button type="button" class="action-btn" id="btnShare">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span>Compartilhar</span>
+        </button>
+
+        <button type="button" class="action-btn" id="btnQuickQR">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+            <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+            <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+            <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+            <path d="M21 21v.01"></path>
+            <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+            <path d="M3 12h.01"></path>
+            <path d="M12 3h.01"></path>
+            <path d="M12 16v.01"></path>
+            <path d="M16 12h1"></path>
+            <path d="M21 12v.01"></path>
+            <path d="M12 21v-1"></path>
+          </svg>
+          <span>QR Code</span>
+        </button>
+      </div>
+
+      <div class="email-bar">
+        <div class="email-bar-left">
+          <span class="email-bar-label">E-mail</span>
+          <a class="email-bar-value" href="mailto:iscjunior@gmail.com">iscjunior@gmail.com</a>
+        </div>
+        <button type="button" class="copy-mini-btn" data-copy="iscjunior@gmail.com" data-copy-label="E-mail copiado">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+          </svg>
+          Copiar e-mail
+        </button>
+      </div>
+    </section>
+
+    <!-- NAVEGAÇÃO POR ABAS -->
+    <nav class="tabs-nav" role="tablist" aria-label="Seções do cartão digital">
+      <button type="button" class="tab-btn" role="tab" id="tab-atuacao" aria-controls="panel-atuacao" aria-selected="true" data-tab="atuacao">Atuação</button>
+      <button type="button" class="tab-btn" role="tab" id="tab-formacao" aria-controls="panel-formacao" aria-selected="false" data-tab="formacao">Formação</button>
+      <button type="button" class="tab-btn" role="tab" id="tab-credenciais" aria-controls="panel-credenciais" aria-selected="false" data-tab="credenciais">Credenciais &amp; QR</button>
+    </nav>
+
+    <!-- ABA 1: ATUAÇÃO -->
+    <section id="panel-atuacao" class="tab-panel active" role="tabpanel" aria-labelledby="tab-atuacao">
+      <div class="section-kicker">
+        <span>Áreas de Atuação Jurídica</span>
+        <span>06 frentes</span>
+      </div>
+
+      <div class="accordion-list">
+        <article class="acc-item" data-open="true">
+          <button type="button" class="acc-trigger" aria-expanded="true">
+            <span class="acc-trigger-left">
+              <span class="acc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="8" y1="13" x2="16" y2="13"></line>
+                  <line x1="8" y1="17" x2="13" y2="17"></line>
+                </svg>
+              </span>
+              <span class="acc-title">Contratos de construção</span>
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="acc-content">
+            Elaboração, revisão e negociação de contratos de empreitada, obras, manutenção e serviços de engenharia.
+          </div>
+        </article>
+
+        <article class="acc-item" data-open="false">
+          <button type="button" class="acc-trigger" aria-expanded="false">
+            <span class="acc-trigger-left">
+              <span class="acc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" y1="22" x2="21" y2="22"></line>
+                  <line x1="6" y1="18" x2="6" y2="11"></line>
+                  <line x1="10" y1="18" x2="10" y2="11"></line>
+                  <line x1="14" y1="18" x2="14" y2="11"></line>
+                  <line x1="18" y1="18" x2="18" y2="11"></line>
+                  <polygon points="12 2 20 7 4 7"></polygon>
+                </svg>
+              </span>
+              <span class="acc-title">Licitações e contratos públicos de obras</span>
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="acc-content">
+            Editais, impugnações, recursos e gestão contratual sob a Lei 14.133/2021, inclusive contratação integrada e semi-integrada.
+          </div>
+        </article>
+
+        <article class="acc-item" data-open="false">
+          <button type="button" class="acc-trigger" aria-expanded="false">
+            <span class="acc-trigger-left">
+              <span class="acc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v18"></path>
+                  <path d="M5 7h14"></path>
+                  <path d="m3 14 3-7 3 7a3 3 0 0 1-6 0Z"></path>
+                  <path d="m15 14 3-7 3 7a3 3 0 0 1-6 0Z"></path>
+                </svg>
+              </span>
+              <span class="acc-title">Reequilíbrio e pleitos contratuais</span>
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="acc-content">
+            Aditivos, reajuste e revisão; análise de orçamentos, BDI e referenciais SINAPI/SICRO à luz da jurisprudência do TCU.
+          </div>
+        </article>
+
+        <article class="acc-item" data-open="false">
+          <button type="button" class="acc-trigger" aria-expanded="false">
+            <span class="acc-trigger-left">
+              <span class="acc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </span>
+              <span class="acc-title">Vícios construtivos e responsabilidade</span>
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="acc-content">
+            Patologias, garantia da obra e responsabilidade civil; responsabilidade por segurança do trabalho em obras.
+          </div>
+        </article>
+
+        <article class="acc-item" data-open="false">
+          <button type="button" class="acc-trigger" aria-expanded="false">
+            <span class="acc-trigger-left">
+              <span class="acc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="18" rx="1"></rect>
+                  <rect x="14" y="8" width="7" height="13" rx="1"></rect>
+                  <line x1="6.5" y1="7" x2="6.5" y2="7.01"></line>
+                  <line x1="6.5" y1="11" x2="6.5" y2="11.01"></line>
+                  <line x1="17.5" y1="12" x2="17.5" y2="12.01"></line>
+                  <line x1="17.5" y1="16" x2="17.5" y2="16.01"></line>
+                </svg>
+              </span>
+              <span class="acc-title">Direito urbanístico, ambiental e imobiliário</span>
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="acc-content">
+            Plano Diretor, parâmetros urbanísticos, outorga onerosa do direito de construir, licenciamento, regularização de imóveis e usucapião.
+          </div>
+        </article>
+
+        <article class="acc-item" data-open="false">
+          <button type="button" class="acc-trigger" aria-expanded="false">
+            <span class="acc-trigger-left">
+              <span class="acc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 16v-3a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"></path>
+                  <rect x="2" y="16" width="20" height="5" rx="1"></rect>
+                  <circle cx="12" cy="6" r="3"></circle>
+                </svg>
+              </span>
+              <span class="acc-title">Prevenção e solução de disputas</span>
+            </span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="acc-content">
+            Negociação e mediação de conflitos em obras, com formação em mediação e arbitragem.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABA 2: FORMAÇÃO -->
+    <section id="panel-formacao" class="tab-panel" role="tabpanel" aria-labelledby="tab-formacao">
+      <div class="section-kicker">
+        <span>Formação Acadêmica</span>
+        <span>Títulos</span>
+      </div>
+
+      <ol class="timeline" style="list-style:none;">
+        <li class="timeline-item current">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Doutorado em Ambiente Construído e Patrimônio Sustentável</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">UFMG</span>
+            <span class="status-tag">Em andamento</span>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Especialização em Direito Ambiental, Minerário e Urbanístico</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">PUC Minas</span>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Graduação em Direito</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">UFMG</span>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Mestrado em Engenharia Civil</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">CEFET-MG</span>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Especialização em Engenharia de Segurança do Trabalho</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">UFMG</span>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Graduação em Engenharia Civil</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">CEFET-MG</span>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-node" aria-hidden="true"></span>
+          <div class="timeline-title">Curso técnico</div>
+          <div class="timeline-meta">
+            <span class="timeline-inst">CEFET-MG</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="section-kicker">
+        <span>Formação Complementar</span>
+        <span>Cursos</span>
+      </div>
+
+      <div class="comp-list">
+        <div class="comp-item">
+          <div class="comp-main">
+            <div class="comp-title">Mediação e Arbitragem</div>
+            <div class="comp-inst">FGV</div>
+          </div>
+          <span class="comp-year">2026</span>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-main">
+            <div class="comp-title">Mediação Judicial e Extrajudicial</div>
+            <div class="comp-inst">IMA</div>
+          </div>
+          <span class="comp-year">2026</span>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-main">
+            <div class="comp-title">Contratação integrada de obras públicas</div>
+          </div>
+          <span class="comp-year">2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 3: CREDENCIAIS & QR -->
+    <section id="panel-credenciais" class="tab-panel" role="tabpanel" aria-labelledby="tab-credenciais">
+      <div class="section-kicker">
+        <span>QR Code Interativo</span>
+        <span id="qrModeBadge">CARTÃO</span>
+      </div>
+
+      <div class="qr-panel">
+        <div class="qr-selector" role="group" aria-label="Selecionar conteúdo do QR Code">
+          <button type="button" class="qr-mode-btn" data-qr="card" aria-pressed="true">Cartão</button>
+          <button type="button" class="qr-mode-btn" data-qr="vcard" aria-pressed="false">vCard</button>
+          <button type="button" class="qr-mode-btn" data-qr="lattes" aria-pressed="false">Lattes</button>
+          <button type="button" class="qr-mode-btn" data-qr="orcid" aria-pressed="false">ORCID</button>
+        </div>
+
+        <div class="qr-stage">
+          <div class="qr-frame" id="qrContainer" aria-label="Código QR"></div>
+          <p class="qr-caption" id="qrCaption"></p>
+          <p class="qr-meta-line" id="qrMeta"></p>
+        </div>
+      </div>
+
+      <div class="section-kicker">
+        <span>Dados Institucionais e Acadêmicos</span>
+        <span>Verificáveis</span>
+      </div>
+
+      <div class="cred-list">
+        <div class="cred-row">
+          <div class="cred-info">
+            <div class="cred-label">Profissional</div>
+            <div class="cred-value">Isaias Carlos de Azevedo Júnior</div>
+          </div>
+          <button type="button" class="copy-mini-btn" data-copy="Isaias Carlos de Azevedo Júnior" data-copy-label="Nome copiado">Copiar</button>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-info">
+            <div class="cred-label">Inscrição OAB/MG</div>
+            <div class="cred-value mono">OAB/MG 244.358</div>
+          </div>
+          <button type="button" class="copy-mini-btn" data-copy="OAB/MG 244.358" data-copy-label="Registro OAB copiado">Copiar</button>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-info">
+            <div class="cred-label">Sede</div>
+            <div class="cred-value">Belo Horizonte/MG</div>
+          </div>
+          <button type="button" class="copy-mini-btn" data-copy="Belo Horizonte/MG" data-copy-label="Sede copiada">Copiar</button>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-info">
+            <div class="cred-label">Currículo Lattes · ID 2656352169374889</div>
+            <div class="cred-value mono">
+              <a class="cred-link" href="http://lattes.cnpq.br/2656352169374889" target="_blank" rel="noopener noreferrer">
+                lattes.cnpq.br/2656352169374889
+              </a>
+            </div>
+          </div>
+          <button type="button" class="copy-mini-btn" data-copy="http://lattes.cnpq.br/2656352169374889" data-copy-label="Link do Lattes copiado">Copiar</button>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-info">
+            <div class="cred-label">ORCID</div>
+            <div class="cred-value mono">
+              <a class="cred-link" href="https://orcid.org/0000-0002-4830-333X" target="_blank" rel="noopener noreferrer">
+                0000-0002-4830-333X
+              </a>
+            </div>
+          </div>
+          <button type="button" class="copy-mini-btn" data-copy="https://orcid.org/0000-0002-4830-333X" data-copy-label="Link do ORCID copiado">Copiar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="card-footer">
+      <span>ICAJ Advocacia e Consultoria Jurídica</span>
+      <span>OAB/MG 244.358 · BH/MG</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* =========================================================================
+       qrcode-generator 1.4.4 (MIT License - Kazuhiko Arase) — Embutido
+       Compatível com UTF-8, níveis L/M/Q/H e renderização SVG via DOM.
+       ========================================================================= */
+    const qrcode = (function () {
+      const PAD0 = 0xEC;
+      const PAD1 = 0x11;
+
+      const QRMode = { MODE_8BIT_BYTE: 1 << 2 };
+      const QRErrorCorrectLevel = { L: 1, M: 0, Q: 3, H: 2 };
+
+      const QRMaskPattern = {
+        PATTERN000: 0, PATTERN001: 1, PATTERN010: 2, PATTERN011: 3,
+        PATTERN100: 4, PATTERN101: 5, PATTERN110: 6, PATTERN111: 7
+      };
+
+      const QRMath = (function () {
+        const EXP_TABLE = new Array(256);
+        const LOG_TABLE = new Array(256);
+        for (let i = 0; i < 8; i++) EXP_TABLE[i] = 1 << i;
+        for (let i = 8; i < 256; i++) {
+          EXP_TABLE[i] = EXP_TABLE[i - 4] ^ EXP_TABLE[i - 5] ^ EXP_TABLE[i - 6] ^ EXP_TABLE[i - 8];
+        }
+        for (let i = 0; i < 255; i++) LOG_TABLE[EXP_TABLE[i]] = i;
+        return {
+          glog: function (n) {
+            if (n < 1) throw new Error('glog(' + n + ')');
+            return LOG_TABLE[n];
+          },
+          gexp: function (n) {
+            while (n < 0) n += 255;
+            while (n >= 256) n -= 255;
+            return EXP_TABLE[n];
+          }
+        };
+      })();
+
+      function qrPolynomial(num, shift) {
+        if (typeof num.length === 'undefined') throw new Error(num.length + '/' + shift);
+        let offset = 0;
+        while (offset < num.length && num[offset] === 0) offset++;
+        const _num = new Array(num.length - offset + shift);
+        for (let i = 0; i < num.length - offset; i++) _num[i] = num[i + offset];
+        return {
+          getAt: function (index) { return _num[index]; },
+          getLength: function () { return _num.length; },
+          multiply: function (e) {
+            const res = new Array(this.getLength() + e.getLength() - 1);
+            for (let i = 0; i < this.getLength(); i++) {
+              for (let j = 0; j < e.getLength(); j++) {
+                res[i + j] ^= QRMath.gexp(QRMath.glog(this.getAt(i)) + QRMath.glog(e.getAt(j)));
+              }
+            }
+            return qrPolynomial(res, 0);
+          },
+          mod: function (e) {
+            if (this.getLength() - e.getLength() < 0) return this;
+            const ratio = QRMath.glog(this.getAt(0)) - QRMath.glog(e.getAt(0));
+            const res = new Array(this.getLength());
+            for (let i = 0; i < this.getLength(); i++) res[i] = this.getAt(i);
+            for (let i = 0; i < e.getLength(); i++) res[i] ^= QRMath.gexp(QRMath.glog(e.getAt(i)) + ratio);
+            return qrPolynomial(res, 0).mod(e);
+          }
+        };
+      }
+
+      const QRRSBlock = (function () {
+        // Tabela completa para Versões 1 a 16 (L, M, Q, H)
+        const RS_BLOCK_TABLE = [
+          // 1
+          [1, 26, 19], [1, 26, 16], [1, 26, 13], [1, 26, 9],
+          // 2
+          [1, 44, 34], [1, 44, 28], [1, 44, 22], [1, 44, 16],
+          // 3
+          [1, 70, 55], [1, 70, 44], [2, 35, 17], [2, 35, 13],
+          // 4
+          [1, 100, 80], [2, 50, 32], [2, 50, 24], [4, 25, 9],
+          // 5
+          [1, 134, 108], [2, 67, 43], [2, 33, 15, 2, 34, 16], [2, 33, 11, 2, 34, 12],
+          // 6
+          [2, 86, 68], [4, 43, 27], [4, 43, 19], [4, 43, 15],
+          // 7
+          [2, 98, 78], [4, 49, 31], [2, 32, 14, 4, 33, 15], [4, 39, 13, 1, 40, 14],
+          // 8
+          [2, 121, 97], [2, 60, 38, 2, 61, 39], [4, 40, 18, 2, 41, 19], [4, 40, 14, 2, 41, 15],
+          // 9
+          [2, 146, 116], [3, 58, 36, 2, 59, 37], [4, 36, 16, 4, 37, 17], [4, 36, 12, 4, 37, 13],
+          // 10
+          [2, 86, 68, 2, 87, 69], [4, 69, 43, 1, 70, 44], [6, 43, 19, 2, 44, 20], [6, 43, 15, 2, 44, 16],
+          // 11
+          [4, 101, 81], [1, 80, 50, 4, 81, 51], [4, 50, 22, 4, 51, 23], [3, 36, 12, 8, 37, 13],
+          // 12
+          [2, 116, 92, 2, 117, 93], [6, 58, 36, 2, 59, 37], [4, 46, 20, 6, 47, 21], [7, 42, 14, 4, 43, 15],
+          // 13
+          [4, 133, 107], [8, 59, 37, 1, 60, 38], [8, 44, 20, 4, 45, 21], [12, 33, 11, 4, 34, 12],
+          // 14
+          [3, 145, 115, 1, 146, 116], [4, 64, 40, 5, 65, 41], [11, 36, 16, 5, 37, 17], [11, 36, 12, 5, 37, 13],
+          // 15
+          [5, 109, 87, 1, 110, 88], [5, 65, 41, 5, 66, 42], [5, 54, 24, 7, 55, 25], [11, 36, 12, 7, 37, 13],
+          // 16
+          [5, 122, 98, 1, 123, 99], [7, 73, 45, 3, 74, 46], [15, 43, 19, 2, 44, 20], [3, 45, 15, 13, 46, 16]
+        ];
+
+        function getRsBlockTable(typeNumber, errorCorrectionLevel) {
+          switch (errorCorrectionLevel) {
+            case QRErrorCorrectLevel.L: return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
+            case QRErrorCorrectLevel.M: return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
+            case QRErrorCorrectLevel.Q: return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
+            case QRErrorCorrectLevel.H: return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
+            default: return undefined;
+          }
+        }
+
+        return {
+          getRSBlocks: function (typeNumber, errorCorrectionLevel) {
+            const rsBlock = getRsBlockTable(typeNumber, errorCorrectionLevel);
+            if (!rsBlock) throw new Error('RS block inválido: ' + typeNumber);
+            const list = [];
+            for (let i = 0; i < rsBlock.length / 3; i++) {
+              const count = rsBlock[i * 3 + 0];
+              const totalCount = rsBlock[i * 3 + 1];
+              const dataCount = rsBlock[i * 3 + 2];
+              for (let j = 0; j < count; j++) {
+                list.push({ totalCount: totalCount, dataCount: dataCount });
+              }
+            }
+            return list;
+          }
+        };
+      })();
+
+      const QRUtil = (function () {
+        const PATTERN_POSITION_TABLE = [
+          [], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34],
+          [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50],
+          [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66],
+          [6, 26, 48, 70], [6, 26, 50, 74]
+        ];
+        const G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0);
+        const G18 = (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0);
+        const G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1);
+
+        function getBCHDigit(data) {
+          let digit = 0;
+          while (data !== 0) {
+            digit++;
+            data >>>= 1;
+          }
+          return digit;
+        }
+
+        return {
+          getBCHTypeInfo: function (data) {
+            let d = data << 10;
+            while (getBCHDigit(d) - getBCHDigit(G15) >= 0) {
+              d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15)));
+            }
+            return ((data << 10) | d) ^ G15_MASK;
+          },
+          getBCHTypeNumber: function (data) {
+            let d = data << 12;
+            while (getBCHDigit(d) - getBCHDigit(G18) >= 0) {
+              d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18)));
+            }
+            return (data << 12) | d;
+          },
+          getPatternPosition: function (typeNumber) {
+            return PATTERN_POSITION_TABLE[typeNumber - 1];
+          },
+          getMaskFunction: function (maskPattern) {
+            switch (maskPattern) {
+              case QRMaskPattern.PATTERN000: return function (i, j) { return (i + j) % 2 === 0; };
+              case QRMaskPattern.PATTERN001: return function (i) { return i % 2 === 0; };
+              case QRMaskPattern.PATTERN010: return function (i, j) { return j % 3 === 0; };
+              case QRMaskPattern.PATTERN011: return function (i, j) { return (i + j) % 3 === 0; };
+              case QRMaskPattern.PATTERN100: return function (i, j) { return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 === 0; };
+              case QRMaskPattern.PATTERN101: return function (i, j) { return (i * j) % 2 + (i * j) % 3 === 0; };
+              case QRMaskPattern.PATTERN110: return function (i, j) { return ((i * j) % 2 + (i * j) % 3) % 2 === 0; };
+              case QRMaskPattern.PATTERN111: return function (i, j) { return ((i * j) % 3 + (i + j) % 2) % 2 === 0; };
+              default: throw new Error('Máscara inválida: ' + maskPattern);
+            }
+          },
+          getErrorCorrectPolynomial: function (errorCorrectLength) {
+            let a = qrPolynomial([1], 0);
+            for (let i = 0; i < errorCorrectLength; i++) {
+              a = a.multiply(qrPolynomial([1, QRMath.gexp(i)], 0));
+            }
+            return a;
+          },
+          getLengthInBits: function (mode, type) {
+            if (type >= 1 && type < 10) return 8;
+            if (type < 27) return 16;
+            return 16;
+          },
+          getLostPoint: function (qrCode) {
+            const moduleCount = qrCode.getModuleCount();
+            let lostPoint = 0;
+            for (let row = 0; row < moduleCount; row++) {
+              for (let col = 0; col < moduleCount; col++) {
+                let sameCount = 0;
+                const dark = qrCode.isDark(row, col);
+                for (let r = -1; r <= 1; r++) {
+                  if (row + r < 0 || moduleCount <= row + r) continue;
+                  for (let c = -1; c <= 1; c++) {
+                    if (col + c < 0 || moduleCount <= col + c) continue;
+                    if (r === 0 && c === 0) continue;
+                    if (dark === qrCode.isDark(row + r, col + c)) sameCount++;
+                  }
+                }
+                if (sameCount > 5) lostPoint += (3 + sameCount - 5);
+              }
+            }
+            for (let row = 0; row < moduleCount - 1; row++) {
+              for (let col = 0; col < moduleCount - 1; col++) {
+                let count = 0;
+                if (qrCode.isDark(row, col)) count++;
+                if (qrCode.isDark(row + 1, col)) count++;
+                if (qrCode.isDark(row, col + 1)) count++;
+                if (qrCode.isDark(row + 1, col + 1)) count++;
+                if (count === 0 || count === 4) lostPoint += 3;
+              }
+            }
+            for (let row = 0; row < moduleCount; row++) {
+              for (let col = 0; col < moduleCount - 6; col++) {
+                if (qrCode.isDark(row, col) && !qrCode.isDark(row, col + 1) && qrCode.isDark(row, col + 2) &&
+                    qrCode.isDark(row, col + 3) && qrCode.isDark(row, col + 4) && !qrCode.isDark(row, col + 5) &&
+                    qrCode.isDark(row, col + 6)) {
+                  lostPoint += 40;
+                }
+              }
+            }
+            for (let col = 0; col < moduleCount; col++) {
+              for (let row = 0; row < moduleCount - 6; row++) {
+                if (qrCode.isDark(row, col) && !qrCode.isDark(row + 1, col) && qrCode.isDark(row + 2, col) &&
+                    qrCode.isDark(row + 3, col) && qrCode.isDark(row + 4, col) && !qrCode.isDark(row + 5, col) &&
+                    qrCode.isDark(row + 6, col)) {
+                  lostPoint += 40;
+                }
+              }
+            }
+            let darkCount = 0;
+            for (let col = 0; col < moduleCount; col++) {
+              for (let row = 0; row < moduleCount; row++) {
+                if (qrCode.isDark(row, col)) darkCount++;
+              }
+            }
+            const ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
+            lostPoint += ratio * 10;
+            return lostPoint;
+          }
+        };
+      })();
+
+      function qrBitBuffer() {
+        const _buffer = [];
+        let _length = 0;
+        return {
+          getBuffer: function () { return _buffer; },
+          getLengthInBits: function () { return _length; },
+          put: function (num, length) {
+            for (let i = 0; i < length; i++) {
+              this.putBit(((num >>> (length - i - 1)) & 1) === 1);
+            }
+          },
+          putBit: function (bit) {
+            const bufIndex = Math.floor(_length / 8);
+            if (_buffer.length <= bufIndex) _buffer.push(0);
+            if (bit) _buffer[bufIndex] |= (0x80 >>> (_length % 8));
+            _length++;
+          }
+        };
+      }
+
+      function qr8BitByte(data) {
+        const _bytes = api.stringToBytes(data);
+        return {
+          getMode: function () { return QRMode.MODE_8BIT_BYTE; },
+          getLength: function () { return _bytes.length; },
+          write: function (buffer) {
+            for (let i = 0; i < _bytes.length; i++) buffer.put(_bytes[i], 8);
+          }
+        };
+      }
+
+      function api(typeNumber, errorCorrectionLevel) {
+        let _typeNumber = typeNumber;
+        const _errorCorrectionLevel = QRErrorCorrectLevel[errorCorrectionLevel];
+        let _modules = null;
+        let _moduleCount = 0;
+        let _dataCache = null;
+        const _dataList = [];
+
+        function setupPositionProbePattern(row, col) {
+          for (let r = -1; r <= 7; r++) {
+            if (row + r <= -1 || _moduleCount <= row + r) continue;
+            for (let c = -1; c <= 7; c++) {
+              if (col + c <= -1 || _moduleCount <= col + c) continue;
+              if ((0 <= r && r <= 6 && (c === 0 || c === 6)) ||
+                  (0 <= c && c <= 6 && (r === 0 || r === 6)) ||
+                  (2 <= r && r <= 4 && 2 <= c && c <= 4)) {
+                _modules[row + r][col + c] = true;
+              } else {
+                _modules[row + r][col + c] = false;
+              }
+            }
+          }
+        }
+
+        function setupTimingPattern() {
+          for (let r = 8; r < _moduleCount - 8; r++) {
+            if (_modules[r][6] !== null) continue;
+            _modules[r][6] = (r % 2 === 0);
+          }
+          for (let c = 8; c < _moduleCount - 8; c++) {
+            if (_modules[6][c] !== null) continue;
+            _modules[6][c] = (c % 2 === 0);
+          }
+        }
+
+        function setupPositionAdjustPattern() {
+          const pos = QRUtil.getPatternPosition(_typeNumber);
+          for (let i = 0; i < pos.length; i++) {
+            for (let j = 0; j < pos.length; j++) {
+              const row = pos[i];
+              const col = pos[j];
+              if (_modules[row][col] !== null) continue;
+              for (let r = -2; r <= 2; r++) {
+                for (let c = -2; c <= 2; c++) {
+                  _modules[row + r][col + c] = (r === -2 || r === 2 || c === -2 || c === 2 || (r === 0 && c === 0));
+                }
+              }
+            }
+          }
+        }
+
+        function setupTypeNumber(test) {
+          const bits = QRUtil.getBCHTypeNumber(_typeNumber);
+          for (let i = 0; i < 18; i++) {
+            const mod = (!test && ((bits >> i) & 1) === 1);
+            _modules[Math.floor(i / 3)][i % 3 + _moduleCount - 8 - 3] = mod;
+            _modules[i % 3 + _moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
+          }
+        }
+
+        function setupTypeInfo(test, maskPattern) {
+          const data = (_errorCorrectionLevel << 3) | maskPattern;
+          const bits = QRUtil.getBCHTypeInfo(data);
+          for (let i = 0; i < 15; i++) {
+            const mod = (!test && ((bits >> i) & 1) === 1);
+            if (i < 6) _modules[i][8] = mod;
+            else if (i < 8) _modules[i + 1][8] = mod;
+            else _modules[_moduleCount - 15 + i][8] = mod;
+
+            if (i < 8) _modules[8][_moduleCount - i - 1] = mod;
+            else if (i < 9) _modules[8][15 - i - 1 + 1] = mod;
+            else _modules[8][15 - i - 1] = mod;
+          }
+          _modules[_moduleCount - 8][8] = !test;
+        }
+
+        function mapData(data, maskPattern) {
+          let inc = -1;
+          let row = _moduleCount - 1;
+          let bitIndex = 7;
+          let byteIndex = 0;
+          const maskFunc = QRUtil.getMaskFunction(maskPattern);
+          for (let col = _moduleCount - 1; col > 0; col -= 2) {
+            if (col === 6) col--;
+            while (true) {
+              for (let c = 0; c < 2; c++) {
+                if (_modules[row][col - c] === null) {
+                  let dark = false;
+                  if (byteIndex < data.length) {
+                    dark = (((data[byteIndex] >>> bitIndex) & 1) === 1);
+                  }
+                  if (maskFunc(row, col - c)) dark = !dark;
+                  _modules[row][col - c] = dark;
+                  bitIndex--;
+                  if (bitIndex === -1) {
+                    byteIndex++;
+                    bitIndex = 7;
+                  }
+                }
+              }
+              row += inc;
+              if (row < 0 || _moduleCount <= row) {
+                row -= inc;
+                inc = -inc;
+                break;
+              }
+            }
+          }
+        }
+
+        function createBytes(buffer, rsBlocks) {
+          let offset = 0;
+          let maxDcCount = 0;
+          let maxEcCount = 0;
+          const dcdata = new Array(rsBlocks.length);
+          const ecdata = new Array(rsBlocks.length);
+
+          for (let r = 0; r < rsBlocks.length; r++) {
+            const dcCount = rsBlocks[r].dataCount;
+            const ecCount = rsBlocks[r].totalCount - dcCount;
+            maxDcCount = Math.max(maxDcCount, dcCount);
+            maxEcCount = Math.max(maxEcCount, ecCount);
+            dcdata[r] = new Array(dcCount);
+            for (let i = 0; i < dcdata[r].length; i++) {
+              dcdata[r][i] = 0xff & buffer.getBuffer()[i + offset];
+            }
+            offset += dcCount;
+            const rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+            const rawPoly = qrPolynomial(dcdata[r], rsPoly.getLength() - 1);
+            const modPoly = rawPoly.mod(rsPoly);
+            ecdata[r] = new Array(rsPoly.getLength() - 1);
+            for (let i = 0; i < ecdata[r].length; i++) {
+              const modIndex = i + modPoly.getLength() - ecdata[r].length;
+              ecdata[r][i] = (modIndex >= 0) ? modPoly.getAt(modIndex) : 0;
+            }
+          }
+
+          let totalCodeCount = 0;
+          for (let i = 0; i < rsBlocks.length; i++) totalCodeCount += rsBlocks[i].totalCount;
+          const data = new Array(totalCodeCount);
+          let index = 0;
+          for (let i = 0; i < maxDcCount; i++) {
+            for (let r = 0; r < rsBlocks.length; r++) {
+              if (i < dcdata[r].length) data[index++] = dcdata[r][i];
+            }
+          }
+          for (let i = 0; i < maxEcCount; i++) {
+            for (let r = 0; r < rsBlocks.length; r++) {
+              if (i < ecdata[r].length) data[index++] = ecdata[r][i];
+            }
+          }
+          return data;
+        }
+
+        function createData(tNum, ecLevel, dataList) {
+          const rsBlocks = QRRSBlock.getRSBlocks(tNum, ecLevel);
+          const buffer = qrBitBuffer();
+          for (let i = 0; i < dataList.length; i++) {
+            const data = dataList[i];
+            buffer.put(data.getMode(), 4);
+            buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), tNum));
+            data.write(buffer);
+          }
+          let totalDataCount = 0;
+          for (let i = 0; i < rsBlocks.length; i++) totalDataCount += rsBlocks[i].dataCount;
+          if (buffer.getLengthInBits() > totalDataCount * 8) {
+            throw new Error('Capacidade excedida: ' + buffer.getLengthInBits() + '>' + (totalDataCount * 8));
+          }
+          if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) buffer.put(0, 4);
+          while (buffer.getLengthInBits() % 8 !== 0) buffer.putBit(false);
+          while (true) {
+            if (buffer.getLengthInBits() >= totalDataCount * 8) break;
+            buffer.put(PAD0, 8);
+            if (buffer.getLengthInBits() >= totalDataCount * 8) break;
+            buffer.put(PAD1, 8);
+          }
+          return createBytes(buffer, rsBlocks);
+        }
+
+        function makeImpl(test, maskPattern) {
+          _moduleCount = _typeNumber * 4 + 17;
+          _modules = new Array(_moduleCount);
+          for (let row = 0; row < _moduleCount; row++) {
+            _modules[row] = new Array(_moduleCount);
+            for (let col = 0; col < _moduleCount; col++) _modules[row][col] = null;
+          }
+          setupPositionProbePattern(0, 0);
+          setupPositionProbePattern(_moduleCount - 7, 0);
+          setupPositionProbePattern(0, _moduleCount - 7);
+          setupPositionAdjustPattern();
+          setupTimingPattern();
+          setupTypeInfo(test, maskPattern);
+          if (_typeNumber >= 7) setupTypeNumber(test);
+          if (_dataCache === null) _dataCache = createData(_typeNumber, _errorCorrectionLevel, _dataList);
+          mapData(_dataCache, maskPattern);
+        }
+
+        function getBestMaskPattern() {
+          let minLostPoint = 0;
+          let pattern = 0;
+          for (let i = 0; i < 8; i++) {
+            makeImpl(true, i);
+            const lostPoint = QRUtil.getLostPoint(instance);
+            if (i === 0 || minLostPoint > lostPoint) {
+              minLostPoint = lostPoint;
+              pattern = i;
+            }
+          }
+          return pattern;
+        }
+
+        const instance = {
+          addData: function (data) {
+            _dataList.push(qr8BitByte(data));
+            _dataCache = null;
+          },
+          isDark: function (row, col) {
+            if (row < 0 || _moduleCount <= row || col < 0 || _moduleCount <= col) {
+              throw new Error(row + ',' + col);
+            }
+            return _modules[row][col];
+          },
+          getModuleCount: function () {
+            return _moduleCount;
+          },
+          make: function () {
+            if (_typeNumber < 1) {
+              let t = 1;
+              for (; t <= 16; t++) {
+                const rsBlocks = QRRSBlock.getRSBlocks(t, _errorCorrectionLevel);
+                const buffer = qrBitBuffer();
+                for (let i = 0; i < _dataList.length; i++) {
+                  const data = _dataList[i];
+                  buffer.put(data.getMode(), 4);
+                  buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), t));
+                  data.write(buffer);
+                }
+                let totalDataCount = 0;
+                for (let i = 0; i < rsBlocks.length; i++) totalDataCount += rsBlocks[i].dataCount;
+                if (buffer.getLengthInBits() <= totalDataCount * 8) break;
+              }
+              _typeNumber = t;
+            }
+            makeImpl(false, getBestMaskPattern());
+          }
+        };
+
+        return instance;
+      }
+
+      api.stringToBytesFuncs = {
+        'UTF-8': function (s) {
+          const utf8 = [];
+          for (let i = 0; i < s.length; i++) {
+            let charcode = s.charCodeAt(i);
+            if (charcode < 0x80) {
+              utf8.push(charcode);
+            } else if (charcode < 0x800) {
+              utf8.push(0xc0 | (charcode >> 6), 0x80 | (charcode & 0x3f));
+            } else if (charcode < 0xd800 || charcode >= 0xe000) {
+              utf8.push(
+                0xe0 | (charcode >> 12),
+                0x80 | ((charcode >> 6) & 0x3f),
+                0x80 | (charcode & 0x3f)
+              );
+            } else {
+              i++;
+              charcode = 0x10000 + (((charcode & 0x3ff) << 10) | (s.charCodeAt(i) & 0x3ff));
+              utf8.push(
+                0xf0 | (charcode >> 18),
+                0x80 | ((charcode >> 12) & 0x3f),
+                0x80 | ((charcode >> 6) & 0x3f),
+                0x80 | (charcode & 0x3f)
+              );
+            }
+          }
+          return utf8;
+        }
+      };
+
+      api.stringToBytes = api.stringToBytesFuncs['UTF-8'];
+      return api;
+    })();
+
+    /* =========================================================================
+       LÓGICA DO CARTÃO DIGITAL — ICAJ ADVOCACIA E CONSULTORIA JURÍDICA
+       ========================================================================= */
+    (function () {
+      'use strict';
+
+      const PUBLIC_CARD_URL = 'https://icaj.com.br/';
+      const LATTES_URL = 'http://lattes.cnpq.br/2656352169374889';
+      const ORCID_URL = 'https://orcid.org/0000-0002-4830-333X';
+      const THEME_STORAGE_KEY = 'icaj_card_theme_v1';
+
+      qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+
+      // vCard compacto para QR Code (246 bytes UTF-8 <= 250 bytes, com URL completa)
+      const COMPACT_VCARD = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Azevedo Jr;Isaias',
+        'FN:Isaias Azevedo Júnior',
+        'ORG:ICAJ',
+        'TITLE:Advogado - OAB/MG 244.358',
+        'TEL:+5531996431621',
+        'EMAIL:iscjunior@gmail.com',
+        'URL:' + PUBLIC_CARD_URL,
+        'END:VCARD'
+      ].join('\n');
+
+      // vCard completo para download do arquivo .vcf
+      const FULL_VCARD = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Azevedo Júnior;Isaias Carlos de;;;',
+        'FN:Isaias Carlos de Azevedo Júnior',
+        'ORG:ICAJ Advocacia e Consultoria Jurídica',
+        'TITLE:Advogado - OAB/MG 244.358',
+        'TEL;TYPE=CELL,VOICE,WHATSAPP:+5531996431621',
+        'EMAIL;TYPE=PREF,INTERNET:iscjunior@gmail.com',
+        'ADR;TYPE=WORK:;;;Belo Horizonte;MG;;Brasil',
+        'URL:' + PUBLIC_CARD_URL,
+        'item1.URL:' + LATTES_URL,
+        'item1.X-ABLabel:Currículo Lattes',
+        'item2.URL:' + ORCID_URL,
+        'item2.X-ABLabel:ORCID',
+        'NOTE:Direito da Construção e de Infraestrutura | Lattes: ' + LATTES_URL + ' | ORCID: ' + ORCID_URL,
+        'END:VCARD'
+      ].join('\r\n');
+
+      const QR_MODES = {
+        card: {
+          badge: 'CARTÃO',
+          payload: PUBLIC_CARD_URL,
+          caption: 'Aponte a câmera para abrir este cartão digital institucional no navegador.',
+          meta: 'Cartão Digital · ICAJ Advocacia e Consultoria Jurídica'
+        },
+        vcard: {
+          badge: 'VCARD',
+          payload: COMPACT_VCARD,
+          caption: 'Escaneie com a câmera do celular (iOS ou Android) para adicionar o contato diretamente à agenda.',
+          meta: 'Isaias Azevedo Júnior · OAB/MG 244.358 · +55 31 99643-1621'
+        },
+        lattes: {
+          badge: 'LATTES',
+          payload: LATTES_URL,
+          caption: 'Acesso direto ao Currículo Lattes na plataforma CNPq.',
+          meta: 'ID Lattes: 2656352169374889'
+        },
+        orcid: {
+          badge: 'ORCID',
+          payload: ORCID_URL,
+          caption: 'Identificador persistente de produção acadêmica e científica (ORCID).',
+          meta: 'ORCID: 0000-0002-4830-333X'
+        }
+      };
+
+      // ==================== TOAST ====================
+      const toastEl = document.getElementById('toast');
+      let toastTimer = null;
+
+      function showToast(message) {
+        if (!toastEl) return;
+        toastEl.textContent = message;
+        toastEl.classList.add('visible');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toastEl.classList.remove('visible');
+        }, 3200);
+      }
+
+      // ==================== CLIPBOARD (COM FALLBACK) ====================
+      function copyText(text, successMessage) {
+        function fallbackCopy() {
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            ta.style.pointerEvents = 'none';
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            if (ok) {
+              showToast(successMessage || 'Copiado para a área de transferência');
+            } else {
+              showToast('Não foi possível copiar automaticamente');
+            }
+          } catch (err) {
+            showToast('Não foi possível copiar automaticamente');
+          }
+        }
+
+        try {
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(text)
+              .then(function () {
+                showToast(successMessage || 'Copiado para a área de transferência');
+              })
+              .catch(fallbackCopy);
+          } else {
+            fallbackCopy();
+          }
+        } catch (err) {
+          fallbackCopy();
+        }
+      }
+
+      // ==================== TEMA CLARO / ESCURO ====================
+      const htmlEl = document.documentElement;
+      const themeToggleBtn = document.getElementById('themeToggle');
+      const themeLabel = document.getElementById('themeLabel');
+      const iconSun = document.getElementById('themeIconSun');
+      const iconMoon = document.getElementById('themeIconMoon');
+
+      function applyTheme(theme) {
+        const safeTheme = theme === 'dark' ? 'dark' : 'light';
+        htmlEl.setAttribute('data-theme', safeTheme);
+        if (safeTheme === 'dark') {
+          themeLabel.textContent = 'Claro';
+          iconSun.style.display = 'inline';
+          iconMoon.style.display = 'none';
+        } else {
+          themeLabel.textContent = 'Escuro';
+          iconSun.style.display = 'none';
+          iconMoon.style.display = 'inline';
+        }
+      }
+
+      (function initTheme() {
+        let saved = null;
+        try {
+          saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+        } catch (err) {
+          saved = null;
+        }
+        applyTheme(saved || 'light');
+      })();
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          try {
+            window.localStorage.setItem(THEME_STORAGE_KEY, next);
+          } catch (err) {
+            // Silencioso em ambientes com armazenamento restrito
+          }
+        });
+      }
+
+      // ==================== NAVEGAÇÃO POR ABAS ====================
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      function activateTab(tabName) {
+        tabButtons.forEach(function (btn) {
+          const isMatch = btn.getAttribute('data-tab') === tabName;
+          btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        });
+        tabPanels.forEach(function (panel) {
+          const isMatch = panel.id === 'panel-' + tabName;
+          panel.classList.toggle('active', isMatch);
+        });
+      }
+
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activateTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      // ==================== ACORDEÃO (ABA ATUAÇÃO) ====================
+      const accTriggers = document.querySelectorAll('.acc-trigger');
+      accTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          const item = trigger.closest('.acc-item');
+          const isOpen = item.getAttribute('data-open') === 'true';
+          item.setAttribute('data-open', isOpen ? 'false' : 'true');
+          trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        });
+      });
+
+      // ==================== RENDERIZAÇÃO QR CODE EM SVG VIA DOM ====================
+      const qrContainer = document.getElementById('qrContainer');
+      const qrCaption = document.getElementById('qrCaption');
+      const qrMeta = document.getElementById('qrMeta');
+      const qrModeBadge = document.getElementById('qrModeBadge');
+      const qrModeButtons = document.querySelectorAll('.qr-mode-btn');
+
+      function renderQR(modeKey) {
+        const cfg = QR_MODES[modeKey] || QR_MODES.card;
+
+        qrModeButtons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-qr') === modeKey ? 'true' : 'false');
+        });
+
+        qrModeBadge.textContent = cfg.badge;
+        qrCaption.textContent = cfg.caption;
+        qrMeta.textContent = cfg.meta;
+
+        const qr = qrcode(0, 'M');
+        qr.addData(cfg.payload);
+        qr.make();
+
+        const count = qr.getModuleCount();
+        const margin = 4;
+        const size = count + margin * 2;
+        const ns = 'http://www.w3.org/2000/svg';
+
+        const svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
+        svg.setAttribute('shape-rendering', 'crispEdges');
+        svg.setAttribute('role', 'img');
+        svg.setAttribute('aria-label', 'QR Code ' + cfg.badge);
+
+        const bg = document.createElementNS(ns, 'rect');
+        bg.setAttribute('width', String(size));
+        bg.setAttribute('height', String(size));
+        bg.setAttribute('fill', '#FFFFFF');
+        svg.appendChild(bg);
+
+        const pathParts = [];
+        for (let r = 0; r < count; r++) {
+          for (let c = 0; c < count; c++) {
+            if (qr.isDark(r, c)) {
+              pathParts.push('M' + (c + margin) + ',' + (r + margin) + 'h1v1h-1z');
+            }
+          }
+        }
+
+        const path = document.createElementNS(ns, 'path');
+        path.setAttribute('d', pathParts.join(''));
+        path.setAttribute('fill', '#0B0D13');
+        svg.appendChild(path);
+
+        while (qrContainer.firstChild) {
+          qrContainer.removeChild(qrContainer.firstChild);
+        }
+        qrContainer.appendChild(svg);
+      }
+
+      qrModeButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          renderQR(btn.getAttribute('data-qr'));
+        });
+      });
+
+      // Inicializa no modo padrão (Cartão)
+      renderQR('card');
+
+      // ==================== AÇÕES RÁPIDAS ====================
+      const btnSaveContact = document.getElementById('btnSaveContact');
+      if (btnSaveContact) {
+        btnSaveContact.addEventListener('click', function () {
+          try {
+            const blob = new Blob([FULL_VCARD], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Isaias_Azevedo_ICAJ.vcf';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function () {
+              try { URL.revokeObjectURL(url); } catch (e) {}
+            }, 1500);
+          } catch (err) {
+            // Fallback imediato garantido pelo redirecionamento ao QR Code vCard
+          }
+
+          activateTab('credenciais');
+          renderQR('vcard');
+          showToast('Se o download não começar, escaneie o QR Code de contato');
+        });
+      }
+
+      const btnShare = document.getElementById('btnShare');
+      if (btnShare) {
+        btnShare.addEventListener('click', function () {
+          const shareData = {
+            title: 'ICAJ Advocacia e Consultoria Jurídica',
+            text: 'Isaias Carlos de Azevedo Júnior — Advogado · OAB/MG 244.358',
+            url: PUBLIC_CARD_URL
+          };
+
+          if (navigator.share && typeof navigator.share === 'function') {
+            navigator.share(shareData).catch(function (err) {
+              if (!err || err.name !== 'AbortError') {
+                copyText(PUBLIC_CARD_URL, 'Link do cartão copiado');
+              }
+            });
+          } else {
+            copyText(PUBLIC_CARD_URL, 'Link do cartão copiado');
+          }
+        });
+      }
+
+      const btnQuickQR = document.getElementById('btnQuickQR');
+      if (btnQuickQR) {
+        btnQuickQR.addEventListener('click', function () {
+          activateTab('credenciais');
+          renderQR('card');
+        });
+      }
+
+      // ==================== BOTÕES INDIVIDUAIS DE CÓPIA ====================
+      const copyButtons = document.querySelectorAll('[data-copy]');
+      copyButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const value = btn.getAttribute('data-copy');
+          const label = btn.getAttribute('data-copy-label') || 'Copiado';
+          copyText(value, label);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
