@@ -40,6 +40,18 @@ Atualize todos estes lugares, para que fiquem iguais:
 - o bloco `application/ld+json` no início do `index.html`;
 - o cartão impresso.
 
+## Estatísticas de visitas (Cloudflare Web Analytics)
+
+Gratuito, sem cookies e sem coleta de dados pessoais (dispensa aviso de cookies).
+
+- Ativar ou trocar o token: `python3 scripts/ativar_estatisticas.py TOKEN`
+- Desativar: `python3 scripts/ativar_estatisticas.py --remover`
+
+O script insere o código da Cloudflare antes de `</body>` e ajusta a política de
+segurança (CSP) só para `static.cloudflareinsights.com` e `cloudflareinsights.com`.
+O token aparece no código da página e não é senha. Os números ficam em
+dash.cloudflare.com → Analytics & Logs → Web Analytics.
+
 ## Configuração que não deve ser alterada
 
 - **O repositório precisa ser público.** No plano gratuito, um repositório privado tira o site do ar.
