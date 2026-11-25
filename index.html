@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LC+QXLoay+V/SvFMvm+YlTlv2WXTetqiFGfg0SQZ5gc=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-AvIg++GZi8gRbn0MQa8Z8oyK8qAHl33UTGOvjm81BcU=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com https://api.web3forms.com; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- E-MAIL DE CONTATO: escreva o endereço entre as aspas de content="" na linha abaixo. É o único lugar a alterar. -->
   <meta name="contato-email" content="icajadv@outlook.com">
@@ -330,6 +330,14 @@
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,78,.5); }
     .form-error { min-height: 1.4em; color: #FFD7A3; font-weight: 600; font-size: .95rem; margin: 4px 0 10px; }
     .form-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+    @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+    .field .opt { font-weight: 400; color: #C3CEDD; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form-ok { margin-top: 18px; padding: 16px 18px; border-radius: 14px; background: rgba(255,255,255,.12); border: 1px solid rgba(201,162,78,.7); }
+    .form-ok:focus { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .form-privacy { margin-top: 16px; font-size: .85rem; color: #C3CEDD; }
+    .btn[disabled] { opacity: .7; cursor: progress; transform: none; }
     .email-fallback { margin-top: 20px; padding: 18px; border-radius: 14px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.28); }
     .email-fallback:focus { outline: 3px solid var(--gold); outline-offset: 3px; }
     .fb-title { font-weight: 700; color: #fff; }
@@ -717,9 +725,13 @@
       <div class="wrap contact">
         <div class="form-card reveal">
           <h2 class="form-title">Conte o que está acontecendo</h2>
-          <p class="hint">Poucas linhas bastam. Você escolhe se envia pelo WhatsApp ou por e-mail; nada fica registrado neste site.</p>
-          <form id="contactForm" novalidate>
-            <div class="field"><label for="fNome">Nome</label><input id="fNome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required></div>
+          <p class="hint">Poucas linhas bastam. A mensagem chega diretamente ao meu e-mail, ou, se preferir, pelo WhatsApp.</p>
+          <form id="contactForm" novalidate data-w3f-key="9fad15ba-b23d-41d2-a606-474248bdf251">
+            <div class="field"><label for="fNome">Nome</label><input id="fNome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required maxlength="120"></div>
+            <div class="field-row">
+              <div class="field"><label for="fEmail">Seu e-mail</label><input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nome@exemplo.com" maxlength="160"></div>
+              <div class="field"><label for="fTel">Telefone <span class="opt">(opcional)</span></label><input id="fTel" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(31) 90000-0000" maxlength="40"></div>
+            </div>
             <div class="field"><label for="fAssunto">Assunto</label>
               <select id="fAssunto" name="assunto">
                 <option>Licitações e contratos públicos</option>
@@ -733,22 +745,18 @@
                 <option selected>Outro assunto</option>
               </select>
             </div>
-            <div class="field"><label for="fMsg">Mensagem</label><textarea id="fMsg" name="mensagem" placeholder="Ex.: contrato de reforma com medições atrasadas; quero entender minhas opções." required></textarea></div>
+            <div class="field"><label for="fMsg">Mensagem</label><textarea id="fMsg" name="mensagem" placeholder="Ex.: contrato de reforma com medições atrasadas; quero entender minhas opções." required maxlength="4000"></textarea></div>
+            <div class="hp" aria-hidden="true"><label for="fBot">Não preencha este campo</label><input id="fBot" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off"></div>
             <p class="form-error" id="formError" role="alert"></p>
             <div class="form-actions">
-              <button class="btn btn-gold" type="submit" data-via="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
-              <button class="btn btn-ghost-light" type="submit" data-via="email" data-email-item hidden><svg aria-hidden="true"><use href="#i-mail"/></svg>Enviar por e-mail</button>
+              <button class="btn btn-gold" type="submit" data-via="email" id="btnEnviar"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>Enviar mensagem</span></button>
+              <button class="btn btn-ghost-light" type="submit" data-via="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
             </div>
-            <div class="email-fallback" id="emailFallback" role="region" aria-labelledby="fbTitle" tabindex="-1" hidden>
-              <p id="fbTitle" class="fb-title">O seu aplicativo de e-mail não abriu?</p>
-              <p class="fb-text">Envie pelo seu e-mail na web ou copie a mensagem pronta:</p>
-              <div class="fb-actions">
-                <a class="btn btn-gold" id="fbGmail" href="#contato" target="_blank" rel="noopener noreferrer">Abrir no Gmail</a>
-                <a class="btn btn-ghost-light" id="fbOutlook" href="#contato" target="_blank" rel="noopener noreferrer">Abrir no Outlook</a>
-                <button class="btn btn-ghost-light" type="button" id="fbCopy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copiar mensagem</button>
-              </div>
-              <p class="fb-text">Endereço: <strong data-email-text></strong></p>
+            <div class="form-ok" id="formOk" role="status" tabindex="-1" hidden>
+              <p class="fb-title">Mensagem enviada.</p>
+              <p class="fb-text">Obrigado pelo contato. A resposta será enviada para o e-mail informado.</p>
             </div>
+            <p class="form-privacy">Os dados informados são usados apenas para responder ao seu contato. O envio por e-mail é feito pelo serviço Web3Forms.</p>
           </form>
         </div>
         <div class="contact-body reveal">
@@ -1617,45 +1625,78 @@
         }
       });
 
-      /* ---------- Formulário: abre o WhatsApp ou o e-mail; nada é armazenado ---------- */
+      /* ---------- Formulário: envio direto por e-mail (Web3Forms) ou pelo WhatsApp ---------- */
       var form = document.getElementById('contactForm');
-      var mensagemPronta = '';
-      document.getElementById('fbCopy').addEventListener('click', function () {
-        if (mensagemPronta) copyText(mensagemPronta, 'Mensagem copiada. Cole no seu e-mail.');
-      });
       var errEl = document.getElementById('formError');
+      var okEl = document.getElementById('formOk');
+      var btnEnviar = document.getElementById('btnEnviar');
+      var W3F_KEY = form.getAttribute('data-w3f-key') || '';
+      var enviando = false;
+      function erro(msg, campo) {
+        errEl.textContent = msg;
+        if (campo) campo.focus();
+      }
+      function setEnviando(on) {
+        enviando = on;
+        btnEnviar.disabled = on;
+        btnEnviar.setAttribute('aria-busy', on ? 'true' : 'false');
+        btnEnviar.querySelector('span').textContent = on ? 'Enviando…' : 'Enviar mensagem';
+      }
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var via = (e.submitter && e.submitter.getAttribute('data-via')) || 'whatsapp';
-        var nome = form.elements.nome.value.trim();
-        var assunto = form.elements.assunto.value;
-        var msg = form.elements.mensagem.value.trim();
-        if (!nome || !msg) {
-          errEl.textContent = !nome ? 'Informe seu nome.' : 'Escreva a mensagem.';
-          (!nome ? form.elements.nome : form.elements.mensagem).focus();
-          return;
-        }
-        errEl.textContent = '';
-        var texto = 'Olá! Meu nome é ' + nome + '.\nAssunto: ' + assunto + '\n\n' + msg + '\n\n(Enviado pelo site icaj.com.br)';
-        if (via === 'email' && EMAIL) {
-          var assuntoEmail = 'Contato pelo site — ' + assunto;
-          var su = encodeURIComponent(assuntoEmail), bd = encodeURIComponent(texto), to = encodeURIComponent(EMAIL);
-          document.getElementById('fbGmail').setAttribute('href', 'https://mail.google.com/mail/?view=cm&fs=1&to=' + to + '&su=' + su + '&body=' + bd);
-          document.getElementById('fbOutlook').setAttribute('href', 'https://outlook.live.com/mail/0/deeplink/compose?to=' + to + '&subject=' + su + '&body=' + bd);
-          mensagemPronta = 'Para: ' + EMAIL + '\nAssunto: ' + assuntoEmail + '\n\n' + texto;
-          var fb = document.getElementById('emailFallback');
-          fb.hidden = false;
-          /* tenta abrir o aplicativo de e-mail padrão do aparelho */
-          var a = document.createElement('a');
-          a.href = 'mailto:' + EMAIL + '?subject=' + su + '&body=' + bd;
-          a.style.display = 'none';
-          document.body.appendChild(a); a.click(); document.body.removeChild(a);
-          setTimeout(function () { try { fb.focus({ preventScroll: false }); } catch (err) {} }, 600);
-        } else {
+        if (enviando) return;
+        var via = (e.submitter && e.submitter.getAttribute('data-via')) || 'email';
+        var el = form.elements;
+        var nome = el.nome.value.trim();
+        var email = el.email.value.trim();
+        var tel = el.telefone.value.trim();
+        var assunto = el.assunto.value;
+        var msg = el.mensagem.value.trim();
+        okEl.hidden = true;
+        if (!nome) return erro('Informe seu nome.', el.nome);
+        if (!msg) return erro('Escreva a mensagem.', el.mensagem);
+        if (via === 'whatsapp') {
+          errEl.textContent = '';
+          var texto = 'Olá! Meu nome é ' + nome + '.\nAssunto: ' + assunto + '\n\n' + msg + '\n\n(Enviado pelo site icaj.com.br)';
           var url = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(texto);
           var w = window.open(url, '_blank');
           if (w) { try { w.opener = null; } catch (err) {} } else { window.location.href = url; }
+          return;
         }
+        if (!/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(email)) return erro('Informe um e-mail válido para receber a resposta.', el.email);
+        if (el.botcheck.checked) return;
+        errEl.textContent = '';
+        setEnviando(true);
+        var dados = {
+          access_key: W3F_KEY,
+          subject: 'Contato pelo site icaj.com.br — ' + assunto,
+          from_name: 'Site icaj.com.br',
+          name: nome,
+          email: email,
+          telefone: tel || 'não informado',
+          assunto: assunto,
+          message: msg,
+          botcheck: ''
+        };
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(dados)
+        }).then(function (resp) {
+          return resp.json().catch(function () { return {}; }).then(function (j) { return { ok: resp.ok, j: j }; });
+        }).then(function (r) {
+          setEnviando(false);
+          if (r.ok && r.j && r.j.success) {
+            form.reset();
+            okEl.hidden = false;
+            try { okEl.focus(); } catch (err) {}
+          } else {
+            erro('Não foi possível enviar agora. Tente novamente em instantes ou use o WhatsApp.');
+          }
+        }).catch(function () {
+          setEnviando(false);
+          erro('Sem conexão para enviar a mensagem. Verifique a internet ou use o WhatsApp.');
+        });
       });
     })();
   </script>
