@@ -39,6 +39,15 @@ e envie o `index.html` atualizado. O bloco `<script type="application/ld+json">`
 - **Telefone/WhatsApp:** aparece nos links `wa.me` do `index.html`, na variável `PHONE` do script (depois rode o `atualizar_csp.py`) e no bloco `application/ld+json`.
 - Atualize também o cartão impresso.
 
+## Formulário de contato (Web3Forms)
+
+As mensagens do formulário chegam por e-mail pelo serviço Web3Forms (plano gratuito, 250 envios por mês), na conta criada com o e-mail de contato.
+
+- A chave fica no atributo `data-w3f-key` da tag `<form id="contactForm">` no `index.html`. Ela é pública; trocar a chave não exige rodar nenhum script.
+- A política de segurança (CSP) libera apenas `https://api.web3forms.com` para o envio.
+- O serviço só aceita envios feitos do navegador dos visitantes; testes a partir de servidores são recusados.
+- Se as mensagens caírem no lixo eletrônico, marque-as como "não é lixo eletrônico".
+
 ## Estatísticas de visitas (Cloudflare Web Analytics)
 
 Gratuito, sem cookies e sem coleta de dados pessoais (dispensa aviso de cookies).
