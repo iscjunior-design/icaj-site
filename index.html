@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-pwmMw310jThSuay7SjYni5k9uNGNFKP9nx9ktrlTwRI=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-OLIIfeYF5S+esb6RmLBnsMusvYKIk89mWFdEJuK3eDA=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- E-MAIL DE CONTATO: escreva o endereço entre as aspas de content="" na linha abaixo. É o único lugar a alterar. -->
   <meta name="contato-email" content="icajadv@gmail.com">
@@ -380,6 +380,10 @@
     .fab svg { width: 28px; height: 28px; }
     .toast { position: fixed; left: 50%; bottom: 92px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: .95rem; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease; z-index: 70; max-width: calc(100% - 40px); text-align: center; }
     .toast.visible { opacity: 1; transform: translate(-50%, 0); }
+
+    /* ---------- Proteção contra moldura (iframe) ---------- */
+    .emmoldura body > *:not(.aviso-moldura) { display: none !important; }
+    .aviso-moldura { display: block; margin: 40px auto; max-width: 420px; padding: 16px 20px; border-radius: 12px; background: var(--brand); color: #fff; text-align: center; font-weight: 600; text-decoration: none; }
 
     /* ---------- Animação de entrada ---------- */
     .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -1368,6 +1372,19 @@
     (function () {
       'use strict';
       document.documentElement.classList.add('js');
+
+      /* Proteção contra exibição dentro de outro site (iframe): esconde o conteúdo e oferece link para o endereço oficial */
+      var emMoldura = false;
+      try { emMoldura = window.self !== window.top; } catch (e) { emMoldura = true; }
+      if (emMoldura) {
+        document.documentElement.classList.add('emmoldura');
+        var aviso = document.createElement('a');
+        aviso.href = 'https://icaj.com.br/'; aviso.target = '_top'; aviso.rel = 'noopener noreferrer';
+        aviso.className = 'aviso-moldura';
+        aviso.textContent = 'Abrir o site oficial: icaj.com.br';
+        document.body.appendChild(aviso);
+        return;
+      }
 
       var SITE_URL = 'https://icaj.com.br/';
       var PHONE = '5531996431621';
