@@ -3,50 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="noindex">
-  <title>Página não encontrada · ICAJ</title>
+  <meta name="theme-color" content="#1F4E8A">
+  <title>Página não encontrada · Isaias Azevedo · Advocacia e Consultoria Jurídica</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <style>
-    @font-face { font-family: 'Inter'; font-weight: 400 600; font-display: swap; src: url(/fonts/Inter-var.woff2) format('woff2'); }
-    @font-face { font-family: 'Plus Jakarta Sans'; font-weight: 500 700; font-display: swap; src: url(/fonts/PlusJakartaSans-var.woff2) format('woff2'); }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F5F7FA; color: #0F172A;
-      display: flex; align-items: center; justify-content: center; padding: 20px;
-    }
-    .box {
-      max-width: 420px; width: 100%; background: #FFFFFF; border: 1px solid #E2E8F0;
-      border-radius: 16px; padding: 32px 28px; text-align: center;
-      box-shadow: 0 20px 44px -16px rgba(11, 13, 19, 0.12);
-    }
-    .mark { width: 56px; height: 56px; margin: 0 auto 18px; }
-    h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; }
-    p { color: #475569; font-size: 0.92rem; line-height: 1.55; margin-bottom: 22px; }
-    a {
-      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
-      padding: 0 22px; border-radius: 10px; background: #1D63ED; color: #FFFFFF;
-      text-decoration: none; font-weight: 600; font-size: 0.92rem;
-    }
-    a:hover { background: #154EC2; }
-    a:focus-visible { outline: 2px solid #1D63ED; outline-offset: 2px; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #06080C; color: #F1F5F9; }
-      .box { background: #0E121A; border-color: #1E293B; }
-      p { color: #A9B6C6; }
-      a { background: #2563EB; }
-    }
+    @font-face { font-family: 'Source Serif 4'; font-weight: 200 900; font-display: swap; src: url('/fonts/SourceSerif4-var.woff2') format('woff2'); }
+    @font-face { font-family: 'Source Sans 3'; font-weight: 200 900; font-display: swap; src: url('/fonts/SourceSans3-var.woff2') format('woff2'); }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 20px; font-family: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif; color: #3A4556; background: linear-gradient(180deg, #F3F5F8, #FFFFFF); }
+    main { width: 100%; max-width: 520px; text-align: center; }
+    img { width: 190px; height: auto; display: block; margin: 0 auto 32px; }
+    .code { font-weight: 700; letter-spacing: .18em; font-size: .85rem; color: #7E5F1C; text-transform: uppercase; }
+    h1 { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; color: #172235; font-size: clamp(1.8rem, 5vw, 2.4rem); margin: 10px 0 12px; line-height: 1.2; }
+    p { margin: 0 0 28px; font-size: 1.08rem; line-height: 1.6; }
+    a.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 26px; border-radius: 999px; background: #1F4E8A; color: #fff; font-weight: 600; text-decoration: none; }
+    a.btn:hover { background: #173F72; }
+    a.btn:focus-visible { outline: 3px solid #C9A24E; outline-offset: 3px; }
+    footer { margin-top: 36px; font-size: .9rem; color: #5B6676; }
   </style>
 </head>
 <body>
-  <main class="box">
-    <img class="mark" src="/favicon.svg" alt="" width="56" height="56">
+  <main>
+    <img src="/assets/logo-azul.svg" width="1112" height="1038" alt="ICAJ — Isaias Carlos Azevedo Junior, Advocacia e Consultoria Jurídica">
+    <p class="code">Erro 404</p>
     <h1>Página não encontrada</h1>
-    <p>O endereço acessado não existe. O cartão digital de Isaias Carlos de Azevedo Júnior, Advogado · OAB/MG 244.358, está na página inicial.</p>
-    <a href="/">Ir para o cartão digital</a>
+    <p>O endereço acessado não existe ou foi alterado.</p>
+    <a class="btn" href="/">Ir para a página inicial</a>
+    <footer>Isaias Carlos de Azevedo Júnior · Advogado · OAB/MG 244.358</footer>
   </main>
 </body>
 </html>

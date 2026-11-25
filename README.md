@@ -1,14 +1,15 @@
-# Cartão digital — icaj.com.br
+# Site — icaj.com.br
 
-Cartão de visitas digital de **Isaias Carlos de Azevedo Júnior**, Advogado, OAB/MG 244.358. O site está publicado em **https://icaj.com.br** pelo GitHub Pages.
+Site institucional de **Isaias Carlos de Azevedo Júnior**, Advogado, OAB/MG 244.358. O site está publicado em **https://icaj.com.br** pelo GitHub Pages.
 
 ## Arquivos
 
 | Arquivo | Função |
 |---|---|
-| `index.html` | O cartão: página única com estilos e script embutidos |
+| `index.html` | O site: página única com estilos e script embutidos (inclui QR Code, salvar contato e formulário) |
 | `404.html` | Página mostrada quando alguém acessa um endereço inexistente |
-| `fonts/` | Fontes do site (Inter, Plus Jakarta Sans e IBM Plex Mono), servidas daqui, sem depender do Google |
+| `fonts/` | Fontes do site (Source Serif 4 e Source Sans 3), servidas daqui, sem depender do Google |
+| `assets/` | Logotipos em vetor: `logo-azul.svg`, `logo-branco.svg` e `monograma.svg` (sigla). Use-os em qualquer material |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` | Ícones da aba do navegador e da tela inicial do celular |
 | `site.webmanifest` | Dados para "Adicionar à tela inicial" |
 | `og-image.jpg` | Imagem que aparece ao compartilhar o link no WhatsApp e em redes sociais (1200 × 630) |
@@ -34,11 +35,9 @@ e envie o `index.html` atualizado. O bloco `<script type="application/ld+json">`
 
 ### Ao mudar dados de contato
 
-Atualize todos estes lugares, para que fiquem iguais:
-- os botões e a barra de e-mail no `index.html`;
-- os vCards `COMPACT_VCARD` e `FULL_VCARD` no script, e depois rode o `atualizar_csp.py`;
-- o bloco `application/ld+json` no início do `index.html`;
-- o cartão impresso.
+- **E-mail:** altere só a linha `<meta name="contato-email" content="...">`, perto do início do `index.html`, e o campo `"email"` do bloco `application/ld+json`. O site espalha o e-mail para o contato, o rodapé, o formulário, o QR Code e o "Salvar contato". Não é preciso rodar nenhum script.
+- **Telefone/WhatsApp:** aparece nos links `wa.me` do `index.html`, na variável `PHONE` do script (depois rode o `atualizar_csp.py`) e no bloco `application/ld+json`.
+- Atualize também o cartão impresso.
 
 ## Estatísticas de visitas (Cloudflare Web Analytics)
 
@@ -72,7 +71,8 @@ dash.cloudflare.com → Analytics & Logs → Web Analytics.
 
 O conteúdo segue o Estatuto da OAB, o Código de Ética e Disciplina e o Provimento 205/2021:
 - não divulga outra atividade em conjunto com a advocacia;
-- não menciona cargo, emprego ou função;
+- não menciona cargo, emprego ou função, atual ou anterior (Código de Ética, art. 44, §2º);
+- não usa expressões persuasivas, de autoengrandecimento ou de comparação, nem anuncia especialidade sem título (Provimento 205/2021, art. 3º);
 - mantém tom informativo e sóbrio.
 
 Revise esses pontos antes de qualquer mudança de texto.
