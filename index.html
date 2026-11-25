@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-OLIIfeYF5S+esb6RmLBnsMusvYKIk89mWFdEJuK3eDA=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LC+QXLoay+V/SvFMvm+YlTlv2WXTetqiFGfg0SQZ5gc=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- E-MAIL DE CONTATO: escreva o endereço entre as aspas de content="" na linha abaixo. É o único lugar a alterar. -->
   <meta name="contato-email" content="icajadv@gmail.com">
@@ -330,6 +330,13 @@
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,78,.5); }
     .form-error { min-height: 1.4em; color: #FFD7A3; font-weight: 600; font-size: .95rem; margin: 4px 0 10px; }
     .form-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .email-fallback { margin-top: 20px; padding: 18px; border-radius: 14px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.28); }
+    .email-fallback:focus { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .fb-title { font-weight: 700; color: #fff; }
+    .fb-text { color: #DCE4EF; font-size: .95rem; margin-top: 4px; overflow-wrap: anywhere; }
+    .fb-text strong { color: #fff; }
+    .fb-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 8px; }
+    .fb-actions .btn { min-height: 44px; padding: 9px 16px; font-size: .95rem; }
 
     .contact-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
     .contact-body > p { margin-top: 16px; color: var(--muted); font-size: 1.08rem; }
@@ -731,6 +738,16 @@
             <div class="form-actions">
               <button class="btn btn-gold" type="submit" data-via="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
               <button class="btn btn-ghost-light" type="submit" data-via="email" data-email-item hidden><svg aria-hidden="true"><use href="#i-mail"/></svg>Enviar por e-mail</button>
+            </div>
+            <div class="email-fallback" id="emailFallback" role="region" aria-labelledby="fbTitle" tabindex="-1" hidden>
+              <p id="fbTitle" class="fb-title">O seu aplicativo de e-mail não abriu?</p>
+              <p class="fb-text">Envie pelo seu e-mail na web ou copie a mensagem pronta:</p>
+              <div class="fb-actions">
+                <a class="btn btn-gold" id="fbGmail" href="#contato" target="_blank" rel="noopener noreferrer">Abrir no Gmail</a>
+                <a class="btn btn-ghost-light" id="fbOutlook" href="#contato" target="_blank" rel="noopener noreferrer">Abrir no Outlook</a>
+                <button class="btn btn-ghost-light" type="button" id="fbCopy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copiar mensagem</button>
+              </div>
+              <p class="fb-text">Endereço: <strong data-email-text></strong></p>
             </div>
           </form>
         </div>
@@ -1602,6 +1619,10 @@
 
       /* ---------- Formulário: abre o WhatsApp ou o e-mail; nada é armazenado ---------- */
       var form = document.getElementById('contactForm');
+      var mensagemPronta = '';
+      document.getElementById('fbCopy').addEventListener('click', function () {
+        if (mensagemPronta) copyText(mensagemPronta, 'Mensagem copiada. Cole no seu e-mail.');
+      });
       var errEl = document.getElementById('formError');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -1617,7 +1638,19 @@
         errEl.textContent = '';
         var texto = 'Olá! Meu nome é ' + nome + '.\nAssunto: ' + assunto + '\n\n' + msg + '\n\n(Enviado pelo site icaj.com.br)';
         if (via === 'email' && EMAIL) {
-          window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Contato pelo site — ' + assunto) + '&body=' + encodeURIComponent(texto);
+          var assuntoEmail = 'Contato pelo site — ' + assunto;
+          var su = encodeURIComponent(assuntoEmail), bd = encodeURIComponent(texto), to = encodeURIComponent(EMAIL);
+          document.getElementById('fbGmail').setAttribute('href', 'https://mail.google.com/mail/?view=cm&fs=1&to=' + to + '&su=' + su + '&body=' + bd);
+          document.getElementById('fbOutlook').setAttribute('href', 'https://outlook.live.com/mail/0/deeplink/compose?to=' + to + '&subject=' + su + '&body=' + bd);
+          mensagemPronta = 'Para: ' + EMAIL + '\nAssunto: ' + assuntoEmail + '\n\n' + texto;
+          var fb = document.getElementById('emailFallback');
+          fb.hidden = false;
+          /* tenta abrir o aplicativo de e-mail padrão do aparelho */
+          var a = document.createElement('a');
+          a.href = 'mailto:' + EMAIL + '?subject=' + su + '&body=' + bd;
+          a.style.display = 'none';
+          document.body.appendChild(a); a.click(); document.body.removeChild(a);
+          setTimeout(function () { try { fb.focus({ preventScroll: false }); } catch (err) {} }, 600);
         } else {
           var url = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(texto);
           var w = window.open(url, '_blank');
