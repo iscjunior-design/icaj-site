@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ERGHuD0NftpJzqlQHaLHVdYmvpC+6rQMNBXVl7jkWAM='; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ERGHuD0NftpJzqlQHaLHVdYmvpC+6rQMNBXVl7jkWAM=' https://static.cloudflareinsights.com; style-src 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://icaj.com.br/">
   <title>ICAJ Advocacia e Consultoria Jurídica — Isaias Carlos de Azevedo Júnior</title>
@@ -2409,5 +2409,8 @@
       });
     })();
   </script>
+  <!-- estatisticas:inicio -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d6afec4395e8481ead3cfc80d4936e15"}'></script>
+  <!-- estatisticas:fim -->
 </body>
 </html>

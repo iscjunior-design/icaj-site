@@ -52,7 +52,7 @@ def main() -> None:
             sys.exit("Token inválido: deve ter 32 caracteres (0-9, a-f).")
         trecho = (
             f"  {INI}\n"
-            f"  <script defer src=\"{SCRIPT_HOST}/beacon.min.js\" "
+            f"  <script type=\"module\" src=\"{SCRIPT_HOST}/beacon.min.js\" "
             f"data-cf-beacon='{{\"token\": \"{token}\"}}'></script>\n"
             f"  {FIM}\n"
         )
