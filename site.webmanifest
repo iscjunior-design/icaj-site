@@ -1,0 +1,16 @@
+{
+  "name": "ICAJ · Isaias Carlos de Azevedo Júnior",
+  "short_name": "ICAJ",
+  "description": "Cartão digital — Advogado, OAB/MG 244.358. Direito da Construção e de Infraestrutura.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F5F7FA",
+  "theme_color": "#0B0D13",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
