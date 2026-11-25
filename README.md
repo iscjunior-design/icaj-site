@@ -35,7 +35,7 @@ e envie o `index.html` atualizado. O bloco `<script type="application/ld+json">`
 
 ### Ao mudar dados de contato
 
-- **E-mail:** altere só a linha `<meta name="contato-email" content="...">`, perto do início do `index.html`, e o campo `"email"` do bloco `application/ld+json`. O site espalha o e-mail para o contato, o rodapé, o formulário, o QR Code e o "Salvar contato". Não é preciso rodar nenhum script.
+- **E-mail:** o site não exibe e-mail; as mensagens do formulário chegam ao e-mail cadastrado no Web3Forms. Para voltar a exibir um endereço, preencha a linha `<meta name="contato-email" content="">` perto do início do `index.html` (o site o espalha para o contato, o rodapé, o QR Code e o "Salvar contato"), sem rodar nenhum script.
 - **Telefone/WhatsApp:** aparece nos links `wa.me` do `index.html`, na variável `PHONE` do script (depois rode o `atualizar_csp.py`) e no bloco `application/ld+json`.
 - Atualize também o cartão impresso.
 
